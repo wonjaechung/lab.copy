@@ -9,6 +9,7 @@ import { CoinCategory, CoinItem, FilterCategoryId, filterCoins, FILTER_CATEGORIE
 import CoinFilterSheet from "./CoinFilterSheet";
 import CoinListSheet from "./CoinListSheet";
 import { getScreenWidth } from "@/lib/screen-utils";
+import WebScrollArrows from "./WebScrollArrows";
 
 const CARD_WIDTH = getScreenWidth() * 0.65;
 
@@ -486,10 +487,9 @@ export default function CoinPicker({ categories }: CoinPickerProps) {
 
       {!isFiltering && !showSavedFilters && (
         <>
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
+          <WebScrollArrows
             contentContainerStyle={styles.scrollContent}
+            scrollAmount={CARD_WIDTH + 12}
             decelerationRate="fast"
             snapToInterval={CARD_WIDTH + 12}
             snapToAlignment="start"
@@ -497,7 +497,7 @@ export default function CoinPicker({ categories }: CoinPickerProps) {
             {categories.map((cat) => (
               <CategoryCard key={cat.id} category={cat} onSeeAll={() => handleSeeAll(cat)} />
             ))}
-          </ScrollView>
+          </WebScrollArrows>
 
           <View style={styles.themeSection}>
             <View style={styles.themeDivider}>
