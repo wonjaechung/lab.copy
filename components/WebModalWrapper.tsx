@@ -18,7 +18,7 @@ const wStyles = StyleSheet.create({
   outer: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: "rgba(0,0,0,0.6)",
+    backgroundColor: "#000000",
     ...(Platform.OS === "web" ? { minHeight: "100vh" as any } : {}),
   },
   inner: {
