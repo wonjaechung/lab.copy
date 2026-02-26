@@ -26,6 +26,7 @@ import InvestSimCard from "@/components/InvestSimCard";
 import CoinPicker from "@/components/CoinPicker";
 import ScheduleCalendar from "@/components/ScheduleCalendar";
 import ScheduleDetailSheet from "@/components/ScheduleDetailSheet";
+import WebScrollArrows from "@/components/WebScrollArrows";
 import {
   ASSETS,
   getChartData,
@@ -269,10 +270,9 @@ export default function HomeScreen() {
                 <Text style={styles.emptyBookmarkHint}>아래 + 버튼으로 자산을 골라보세요</Text>
               </View>
             ) : (
-              <ScrollView
-                horizontal
-                showsHorizontalScrollIndicator={false}
+              <WebScrollArrows
                 contentContainerStyle={styles.presetScroll}
+                scrollAmount={280}
               >
                 {displayedPresets.map((preset) => (
                   <PresetCard
@@ -296,7 +296,7 @@ export default function HomeScreen() {
                     <Feather name="plus" size={22} color={Colors.dark.accent} />
                   </Pressable>
                 )}
-              </ScrollView>
+              </WebScrollArrows>
             )}
           </View>
 
