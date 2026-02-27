@@ -140,8 +140,13 @@ export default function CoinFilterSheet({ visible, onClose, filters, onApply, in
 
   const handleApply = useCallback(() => {
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
-    onApply(localFilters);
+    const savedFilters = { ...localFilters };
     onClose();
+    if (Platform.OS === "web") {
+      setTimeout(() => onApply(savedFilters), 150);
+    } else {
+      onApply(savedFilters);
+    }
   }, [localFilters, onApply, onClose]);
 
   React.useEffect(() => {
